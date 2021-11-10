@@ -1,0 +1,1 @@
+Contains the publicly distributed .h (header files) for a library to be included in another application, required to use a library or DLL

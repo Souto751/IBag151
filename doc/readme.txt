@@ -1,0 +1,1 @@
+Manuals, or a README file, or the .man files for Linux “man” command, or an offline website so you would see .html files
