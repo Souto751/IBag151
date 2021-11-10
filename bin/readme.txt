@@ -1,0 +1,1 @@
+Contains the compiled .dll file or (sometimes) a .lib or the executable application or .exe file

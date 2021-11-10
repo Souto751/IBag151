@@ -1,0 +1,1 @@
+Contains statically linkable ,lib files (precompiled code) and is part of a library
