@@ -13,7 +13,7 @@ class MoveRight : public IMovement{
         MoveRight(){};
         ~MoveRight(){};
         void action(int &posX){
-            posX--;
+            posX++;
         }
 };
 
@@ -22,7 +22,7 @@ class MoveLeft : public IMovement{
         MoveLeft(){};
         ~MoveLeft(){};
         void action(int &posX){
-            posX++;
+            posX--;
         }
 };
 
@@ -31,7 +31,7 @@ class Accelerate : public IMovement{
         Accelerate(){};
         ~Accelerate(){};
         void action(int &posZ){
-            posZ--;
+            posZ++;
         }
 };
 
@@ -40,7 +40,7 @@ class Reverse : public IMovement{
         Reverse(){};
         ~Reverse(){};
         void action(int &posZ){
-            posZ++;
+            posZ--;
         }
 };
 
@@ -49,7 +49,7 @@ class Stop : public IMovement{
         Stop(){};
         ~Stop(){};
         void action(int &speed){
-            speed++;
+            speed = 0;
         }
 };
 
@@ -58,7 +58,8 @@ class RotateRight : public IMovement{
         RotateRight(){};
         ~RotateRight(){};
         void action(int &orientation){
-            orientation += 90;
+            orientation += 45;
+            if(orientation = 360) orientation = 0;
         }
 };
 
@@ -67,7 +68,8 @@ class RotateLeft : public IMovement{
         RotateLeft(){};
         ~RotateLeft(){};
         void action(int &orientation){
-            orientation -= 90;
+            if(orientation == 0) orientation = 360;
+            orientation -= 45;
         }
 };
 
@@ -76,7 +78,7 @@ class Ascend : public IMovement{
         Ascend(){};
         ~Ascend(){};
         void action(int &posY){
-            posY--;
+            posY++;
         }
 };
 
@@ -85,7 +87,7 @@ class Descend : public IMovement{
         Descend(){};
         ~Descend(){};
         void action(int &posY){
-            posY++;
+            posY--;
         }
 };
 

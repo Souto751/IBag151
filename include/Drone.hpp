@@ -14,26 +14,25 @@ class Drone{
         int orientation = 0;
         int speed = 0;
         Camera camera;
-        Package* package = NULL;
+        Package package;
     public:
         Drone(){};
-        ~Drone(){
-            delete package;
-        };
+        ~Drone(){};
         void engineOn(){
-            engine_status = "prendido";
+            engine_status = "on";
         }
         void engineOff(){
-            engine_status = "apagado";
+            engine_status = "off";
         }
         void deliverPackage(){
-            std::cout << "El paquete ha sido entregado" << std::endl;
+            package.delivered();
         }
-        void chargePackage(Package &pack){
-            package = NULL;
+        void chargePackage(Package pack){
+            package = pack;
         }
-        Package * getPackageInfo(){
-            return package;
+        bool getPackageInfo(){
+            bool pack_status = package.getStatus();
+            return pack_status;
         }
         std::string getEngineStatus(){
             return engine_status;
