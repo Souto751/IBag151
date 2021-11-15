@@ -1,5 +1,6 @@
 #include "..\lib\googletest\googletest\include\gtest\gtest.h"
 #include "..\include\iMovement.hpp"
+#include "..\include\Drone.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -9,89 +10,90 @@
 TEST(Action, moveRight)
 {
     MoveRight mr;
-    int initialPosX = 0;
+    Drone testDrone;
 
-    mr.action(initialPosX);
+    mr.action(testDrone);
 
-    EXPECT_EQ(initialPosX, 1);
+    EXPECT_EQ(testDrone.getPositionX(), 1);
 }
 
 TEST(Action, moveLeft)
 {
     MoveLeft ml;
-    int initialPosX = 0;
+    Drone testDrone;
 
-    ml.action(initialPosX);
+    ml.action(testDrone);
 
-    EXPECT_EQ(initialPosX, -1);
+    EXPECT_EQ(testDrone.getPositionX(), -1);
 }
 
 TEST(Action, accelerate)
 {
     Accelerate acc;
-    int initialPosZ = 0;
+    Drone testDrone;
 
-    acc.action(initialPosZ);
+    acc.action(testDrone);
 
-    EXPECT_EQ(initialPosZ, 1);
+    EXPECT_EQ(testDrone.getPositionZ(), 1);
+    EXPECT_EQ(testDrone.getSpeed(), 1);
 }
 
 TEST(Action, reverse)
 {
     Reverse rev;
-    int initialPosZ = 0;
+    Drone testDrone;
 
-    rev.action(initialPosZ);
+    rev.action(testDrone);
 
-    EXPECT_EQ(initialPosZ, -1);
+    EXPECT_EQ(testDrone.getPositionZ(), -1);
 }
 
 TEST(Action, stop)
 {
     Stop st;
-    int speed = 10;
+    Drone testDrone;
 
-    st.action(speed);
+    st.action(testDrone);
 
-    EXPECT_EQ(speed, 0);
+    EXPECT_EQ(testDrone.getSpeed(), 0);
 }
 
 TEST(Action, rotateLeft)
 {
     RotateLeft rl;
-    int orientation = 0;
+    Drone testDrone;
 
-    rl.action(orientation);
+    rl.action(testDrone);
 
-    EXPECT_EQ(orientation, 315);
+    EXPECT_EQ(testDrone.getOrientation(), 315);
 }
 
 TEST(Action, rotateRight)
 {
     RotateRight rr;
-    int orientation = 315;
+    Drone testDrone;
 
-    rr.action(orientation);
+    rr.action(testDrone);
 
-    EXPECT_EQ(orientation, 0);
+    EXPECT_EQ(testDrone.getOrientation(), 45);
 }
 
 TEST(Action, ascend)
 {
     Ascend asc;
-    int initialPosY = 0;
+    Drone testDrone;
 
-    asc.action(initialPosY);
+    asc.action(testDrone);
 
-    EXPECT_EQ(initialPosY, 1);
+    EXPECT_EQ(testDrone.getPositionY(), 1);
 }
 
 TEST(Action, descend)
 {
     Descend des;
-    int initialPosY = 10;
+    Drone testDrone;
 
-    des.action(initialPosY);
+    st.action(testDrone);
 
-    EXPECT_EQ(initialPosY, 9);
+    EXPECT_EQ(testDrone.getPositionY(), -1);
 }
