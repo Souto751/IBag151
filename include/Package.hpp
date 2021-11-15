@@ -3,15 +3,20 @@
 
 class Package{
     private:
-        bool is_delivered = false;
+        bool was_delivered = false;
     public:
         Package(){};
         ~Package(){};
         bool delivered(){
-            return is_delivered;
+            was_delivered = true;
+            notifyDelivered();
+            return was_delivered;
         }
         void notifyDelivered(){
-            std::cout << "El paquete ha sido entregado" << std::endl;
+            std::cout << "El paquete ha sido entregado." << std::endl;
+        }
+        bool getStatus(){
+            return was_delivered;
         }
 };
 

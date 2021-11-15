@@ -26,23 +26,21 @@ TEST(Engine, Off)
 TEST(Pack, DeliverPackage)
 {
     Drone IBag151;
-    Package* pack;
-    Package* nullPackage = NULL;
+    Package pack;
+
+    IBag151.chargePackage(pack);
 
     IBag151.deliverPackage();
 
-    pack = IBag151.getPackageInfo();
-
-    EXPECT_EQ(pack, nullPackage);
+    EXPECT_TRUE(IBag151.getPackageInfo() == true);
 }
 
 TEST(Pack, ChargePackage)
 {
     Drone IBag151;
     Package testPackage;
-    Package* nullPackage = NULL;
 
     IBag151.chargePackage(testPackage);
 
-    EXPECT_NE(IBag151.getPackageInfo(), nullPackage);
+    EXPECT_TRUE(IBag151.getPackageInfo() == false);
 }

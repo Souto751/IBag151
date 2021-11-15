@@ -21,9 +21,7 @@ Camera::Camera(){};
 Camera::~Camera(){};
 
 void Camera::takePhoto(std::string details){
-    std::reverse(photosList.begin(), photosList.end());
     photosList.push_back(details);
-    std::reverse(photosList.begin(), photosList.end());
 };
 
 std::vector<std::string> Camera::getPhotos(){
