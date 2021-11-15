@@ -30,24 +30,20 @@ TEST(Action, accelerate)
 {
     Accelerate acc;
     int initialPosZ = 0;
-    int speed = 0;
 
     acc.action(initialPosZ);
 
     EXPECT_EQ(initialPosZ, 1);
-    EXPECT_EQ(speed, 1);
 }
 
 TEST(Action, reverse)
 {
     Reverse rev;
     int initialPosZ = 0;
-    int speed = 0;
 
     rev.action(initialPosZ);
 
     EXPECT_EQ(initialPosZ, -1);
-    EXPECT_EQ(speed, -1);
 }
 
 TEST(Action, stop)
@@ -84,22 +80,18 @@ TEST(Action, ascend)
 {
     Ascend asc;
     int initialPosY = 0;
-    int speedY = 0;
 
     asc.action(initialPosY);
 
     EXPECT_EQ(initialPosY, 1);
-    EXPECT_EQ(speedY, 1);
 }
 
 TEST(Action, descend)
 {
     Descend des;
     int initialPosY = 10;
-    int speedY = 0;
 
     des.action(initialPosY);
 
     EXPECT_EQ(initialPosY, 9);
-    EXPECT_EQ(speedY, -1);
 }

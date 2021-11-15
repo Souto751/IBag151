@@ -20,3 +20,10 @@ TEST(Notify, NotifyDelivery)
 
     EXPECT_EQ("El paquete ha sido entregado.\n", output);
 }
+
+TEST(Get, Status)
+{
+    Package testPack;
+
+    EXPECT_TRUE(testPack.getStatus() == false);
+}
