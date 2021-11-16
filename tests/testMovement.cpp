@@ -93,7 +93,7 @@ TEST(Action, descend)
     Descend des;
     Drone testDrone;
 
-    st.action(testDrone);
+    des.action(testDrone);
 
     EXPECT_EQ(testDrone.getPositionY(), -1);
 }
