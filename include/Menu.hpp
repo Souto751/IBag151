@@ -37,7 +37,10 @@ void menuAction(int &option){
         IBag151.chargePackage(pack);
     }
     if(option == 13) IBag151.deliverPackage();
-    if(option == 14) option = -1;
+    if(option == 14) {
+        std::cout << "Hasta luego!" << std::endl;
+        option = -1;
+    }
 }
 
 void displayMenu(){

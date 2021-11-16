@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.22)
 project(IBag151)
 set(CMAKE_CXX_STANDARD 11)
 
+# Main
+file(GLOB TEST_SRC_FILES_PPAL ${PROJECT_SOURCE_DIR}/src/Main.cpp ${PROJECT_SOURCE_DIR}/include/*.hpp)
+add_executable(IBag151 ${TEST_SRC_FILES_PPAL})
+
 # Camera Tests
 message("Testing Enabled")
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/tests/testCamera.cpp ${PROJECT_SOURCE_DIR}/include/*.cpp)
@@ -43,3 +47,13 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_executable(runTestDrone ${TEST_SRC_FILES})
 target_link_libraries(runTestDrone gtest gtest_main)
 add_test(UnitTests runTestDrone)
+
+# Menu Tests
+message("Testing Enabled")
+file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/tests/testMenu.cpp ${PROJECT_SOURCE_DIR}/include/*.cpp)
+
+enable_testing()
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+add_executable(runTestMenu ${TEST_SRC_FILES})
+target_link_libraries(runTestMenu gtest gtest_main)
+add_test(UnitTests runTestMenu)
