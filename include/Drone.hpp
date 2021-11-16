@@ -27,7 +27,7 @@ class Drone{
         void deliverPackage(){
             package.delivered();
         }
-        void chargePackage(Package pack){
+        void chargePackage(Package &pack){
             package = pack;
         }
         bool getPackageInfo(){
@@ -37,7 +37,37 @@ class Drone{
         std::string getEngineStatus(){
             return engine_status;
         }
-};
+        void setPositionX(int newPosX){
+            pos_x = newPosX;
+        }
+        void setPositionY(int newPosY){
+            pos_y = newPosY;
+        }
+        void setPositionZ(int newPosZ){
+            pos_z = newPosZ;
+        }
+        void setSpeed(int sp){
+            speed = sp;
+        }
+        void setOrientation(int newOrientation){
+            orientation = newOrientation;
+        }
+        int getPositionX(){
+            return pos_x;
+        }
+        int getPositionY(){
+            return pos_y;
+        }
+        int getPositionZ(){
+            return pos_z;
+        }
+        int getSpeed(){
+            return speed;
+        }
+        int getOrientation(){
+            return orientation;
+        }
+}IBag151;
 
 
 #endif // DRONE_HPP
