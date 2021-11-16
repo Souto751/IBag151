@@ -1,7 +1,8 @@
 #include <iostream>
+#include "../include/Menu.hpp"
 
 int main(){
-    std::cout << "Ejecutando Programa Principal" << std::endl;
+    displayMenu();
 
 
     return 0;
