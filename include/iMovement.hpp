@@ -82,7 +82,7 @@ class Ascend : public IMovement{
         Ascend(){};
         ~Ascend(){};
         void action(Drone &drone){
-            drone.setPositionY(drone.getPositionZ() + 1);
+            drone.setPositionY(drone.getPositionY() + 1);
         }
 }ascend;
 
@@ -91,7 +91,7 @@ class Descend : public IMovement{
         Descend(){};
         ~Descend(){};
         void action(Drone &drone){
-            drone.setPositionY(drone.getPositionZ() - 1);
+            drone.setPositionY(drone.getPositionY() - 1);
         }
 }descend;
 
