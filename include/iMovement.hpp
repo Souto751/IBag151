@@ -15,7 +15,7 @@ class MoveRight : public IMovement{
         MoveRight(){};
         ~MoveRight(){};
         void action(Drone &drone){
-            drone.setPositionX(2);
+            drone.setPositionX(drone.getPositionX() + 1);
         }
 }moveRight;
 
@@ -24,7 +24,7 @@ class MoveLeft : public IMovement{
         MoveLeft(){};
         ~MoveLeft(){};
         void action(Drone &drone){
-            drone.setPositionX(-12);
+            drone.setPositionX(drone.getPositionX() - 1);
         }
 }moveLeft;
 
@@ -33,8 +33,8 @@ class Accelerate : public IMovement{
         Accelerate(){};
         ~Accelerate(){};
         void action(Drone &drone){
-            drone.setPositionZ(12);
-            drone.setSpeed(5);
+            drone.setPositionZ(drone.getPositionZ() + 1);
+            drone.setSpeed(drone.getSpeed() + 1);
         }
 }accelerate;
 
@@ -43,8 +43,8 @@ class Reverse : public IMovement{
         Reverse(){};
         ~Reverse(){};
         void action(Drone &drone){
-            drone.setPositionZ(-12);
-            drone.setSpeed(-5);
+            drone.setPositionZ(drone.getPositionZ() - 1);
+            drone.setSpeed(drone.getSpeed() - 1);
         }
 }reverse;
 
@@ -53,7 +53,7 @@ class Stop : public IMovement{
         Stop(){};
         ~Stop(){};
         void action(Drone &drone){
-            drone.setSpeed(1);
+            drone.setSpeed(0);
         }
 }stop;
 
@@ -62,8 +62,8 @@ class RotateRight : public IMovement{
         RotateRight(){};
         ~RotateRight(){};
         void action(Drone &drone){
-            drone.setOrientation(90);
-            if(drone.getOrientation() == 360) drone.setOrientation(180);
+            drone.setOrientation(drone.getOrientation() + 45);
+            if(drone.getOrientation() == 360) drone.setOrientation(0);
         }
 }rotateRight;
 
@@ -72,8 +72,8 @@ class RotateLeft : public IMovement{
         RotateLeft(){};
         ~RotateLeft(){};
         void action(Drone &drone){
-            if(drone.getOrientation() == 0) drone.setOrientation(180);
-            drone.setOrientation(90);
+            if(drone.getOrientation() == 0) drone.setOrientation(360);
+            drone.setOrientation(drone.getOrientation() - 45);
         }
 }rotateLeft;
 
@@ -82,7 +82,7 @@ class Ascend : public IMovement{
         Ascend(){};
         ~Ascend(){};
         void action(Drone &drone){
-            drone.setPositionY(5);
+            drone.setPositionY(drone.getPositionZ() + 1);
         }
 }ascend;
 
@@ -91,7 +91,7 @@ class Descend : public IMovement{
         Descend(){};
         ~Descend(){};
         void action(Drone &drone){
-            drone.setPositionY(-2);
+            drone.setPositionY(drone.getPositionZ() - 1);
         }
 }descend;
 
