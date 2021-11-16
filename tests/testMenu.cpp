@@ -8,17 +8,14 @@
 TEST(Menu, CorrectOption)
 {
     int option = -1;
-    try{
-        option = selectOption();
-    }catch(std::ios_base::failure &fail){
-        option = -1;
-        std::cin.clear();
-    }
+    
+    option = selectOption();
 
-    EXPECT_TRUE(option >= 0 && option <= 14);
+    ASSERT_TRUE(option >= 0);
+    ASSERT_TRUE(option <= 14);
 }
 
-TEST(Menu, Option1)
+TEST(Menu, Option1_StartEngine)
 {
     int option = 1;
     menuAction(option);
@@ -26,7 +23,7 @@ TEST(Menu, Option1)
     EXPECT_TRUE(IBag151.getEngineStatus() == "on");
 }
 
-TEST(Menu, StopEngine)
+TEST(Menu, Option2_StopEngine)
 {
     int option = 2;
     menuAction(option);
@@ -34,7 +31,7 @@ TEST(Menu, StopEngine)
     EXPECT_TRUE(IBag151.getEngineStatus() == "off");
 }
 
-TEST(Menu, TestAccelerate)
+TEST(Menu, Option3_TestAccelerate)
 {
     int option = 3;
     menuAction(option);
@@ -43,7 +40,7 @@ TEST(Menu, TestAccelerate)
     EXPECT_EQ(IBag151.getPositionZ(), 1);
 }
 
-TEST(Menu, TestBreak)
+TEST(Menu, Option4_TestBreak)
 {
     int option = 4;
     menuAction(option);
@@ -51,7 +48,7 @@ TEST(Menu, TestBreak)
     EXPECT_EQ(IBag151.getSpeed(), 0);
 }
 
-TEST(Menu, TestReverse)
+TEST(Menu, Option5_TestReverse)
 {
     int option = 5;
     menuAction(option);
@@ -60,7 +57,7 @@ TEST(Menu, TestReverse)
     EXPECT_EQ(IBag151.getPositionZ(), -1);
 }
 
-TEST(Menu, TestAscend)
+TEST(Menu, Option6_TestAscend)
 {
     int option = 6;
     menuAction(option);
@@ -68,7 +65,7 @@ TEST(Menu, TestAscend)
     EXPECT_EQ(IBag151.getPositionY(), 1);
 }
 
-TEST(Menu, TestDescend)
+TEST(Menu, Option7_TestDescend)
 {
     int option = 7;
     menuAction(option);
@@ -76,7 +73,7 @@ TEST(Menu, TestDescend)
     EXPECT_EQ(IBag151.getPositionY(), -1);
 }
 
-TEST(Menu, TestMoveLeft)
+TEST(Menu, Option8_TestMoveLeft)
 {
     int option = 8;
     menuAction(option);
@@ -84,7 +81,7 @@ TEST(Menu, TestMoveLeft)
     EXPECT_EQ(IBag151.getPositionZ(), -1);
 }
 
-TEST(Menu, TestMoveRight)
+TEST(Menu, Option9_TestMoveRight)
 {
     int option = 9;
     menuAction(option);
@@ -92,7 +89,7 @@ TEST(Menu, TestMoveRight)
     EXPECT_EQ(IBag151.getPositionZ(), 1);
 }
 
-TEST(Menu, TestRotateLeft)
+TEST(Menu, Option10_TestRotateLeft)
 {
     int option = 10;
     menuAction(option);
@@ -100,7 +97,7 @@ TEST(Menu, TestRotateLeft)
     EXPECT_EQ(IBag151.getOrientation(), 45);
 }
 
-TEST(Menu, TestRotateRight)
+TEST(Menu, Option11_TestRotateRight)
 {
     int option = 11;
     menuAction(option);
@@ -108,7 +105,7 @@ TEST(Menu, TestRotateRight)
     EXPECT_EQ(IBag151.getOrientation(), 315);
 }
 
-TEST(Menu, Charge)
+TEST(Menu, Option12_Charge)
 {
     int option = 12;
     menuAction(option);
@@ -116,7 +113,7 @@ TEST(Menu, Charge)
     EXPECT_TRUE(IBag151.getPackageInfo() == false);
 }
 
-TEST(Menu, Deliver)
+TEST(Menu, Option13_Deliver)
 {
     int option = 13;
     menuAction(option);
@@ -124,7 +121,7 @@ TEST(Menu, Deliver)
     EXPECT_TRUE(IBag151.getPackageInfo() == true);
 }
 
-TEST(Menu, Exit)
+TEST(Menu, Option14_Exit)
 {
     int option = 14;
     menuAction(option);
