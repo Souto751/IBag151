@@ -48,7 +48,14 @@ void displayMenu(){
     int option = 0;
     do{
         clean_screen();
-        std::cout << "App Drone IBag151" << std::endl << std::endl;
+        std::cout << "Engine Status:  " << IBag151.getEngineStatus() << std::endl;
+        std::cout << "Speed:          " << IBag151.getSpeed() << std::endl;
+        std::cout << "Position:       x: " << IBag151.getPositionX() << " || y: " << IBag151.getPositionY() << " || z: " << IBag151.getPositionZ() << std::endl;
+        std::cout << "Orientation:    " << IBag151.getOrientation() << std::endl;
+        std::cout << "Package Status: ";
+        if(!IBag151.getPackageInfo()) std::cout << "Not delivered" << std::endl;
+        if(IBag151.getPackageInfo()) std::cout << "Delivered" << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
         std::cout << "--Drive Drone--" << std::endl;
         std::cout << "1. Start Engine" << std::endl;
         std::cout << "2. Stop Engine" << std::endl;
