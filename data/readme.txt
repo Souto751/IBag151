@@ -1,1 +1,0 @@
-“sample data” or “test data” that usually sits in here and is accessed by the application in the bin/ folder
