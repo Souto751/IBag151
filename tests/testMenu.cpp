@@ -54,7 +54,7 @@ TEST(Menu, Option5_TestReverse)
     menuAction(option);
 
     EXPECT_EQ(IBag151.getSpeed(), -1);
-    EXPECT_EQ(IBag151.getPositionZ(), -1);
+    EXPECT_EQ(IBag151.getPositionZ(), 0);
 }
 
 TEST(Menu, Option6_TestAscend)
@@ -70,7 +70,7 @@ TEST(Menu, Option7_TestDescend)
     int option = 7;
     menuAction(option);
 
-    EXPECT_EQ(IBag151.getPositionY(), -1);
+    EXPECT_EQ(IBag151.getPositionY(), 0);
 }
 
 TEST(Menu, Option8_TestMoveLeft)
@@ -86,7 +86,7 @@ TEST(Menu, Option9_TestMoveRight)
     int option = 9;
     menuAction(option);
 
-    EXPECT_EQ(IBag151.getPositionZ(), 1);
+    EXPECT_EQ(IBag151.getPositionZ(), 0);
 }
 
 TEST(Menu, Option10_TestRotateLeft)
@@ -102,7 +102,7 @@ TEST(Menu, Option11_TestRotateRight)
     int option = 11;
     menuAction(option);
 
-    EXPECT_EQ(IBag151.getOrientation(), 315);
+    EXPECT_EQ(IBag151.getOrientation(), 0);
 }
 
 TEST(Menu, Option12_Charge)
