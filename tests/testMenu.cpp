@@ -78,7 +78,7 @@ TEST(Menu, Option8_TestMoveLeft)
     int option = 8;
     menuAction(option);
 
-    EXPECT_EQ(IBag151.getPositionZ(), -1);
+    EXPECT_EQ(IBag151.getPositionX(), -1);
 }
 
 TEST(Menu, Option9_TestMoveRight)
@@ -86,7 +86,7 @@ TEST(Menu, Option9_TestMoveRight)
     int option = 9;
     menuAction(option);
 
-    EXPECT_EQ(IBag151.getPositionZ(), 0);
+    EXPECT_EQ(IBag151.getPositionX(), 0);
 }
 
 TEST(Menu, Option10_TestRotateLeft)
@@ -94,7 +94,7 @@ TEST(Menu, Option10_TestRotateLeft)
     int option = 10;
     menuAction(option);
 
-    EXPECT_EQ(IBag151.getOrientation(), 45);
+    EXPECT_EQ(IBag151.getOrientation(), 315);
 }
 
 TEST(Menu, Option11_TestRotateRight)
@@ -118,16 +118,20 @@ TEST(Menu, Option13_Deliver)
     int option = 13;
     menuAction(option);
 
+    testing::internal::CaptureStdout();
+    IBag151.deliverPackage();
+    std::string output = testing::internal::GetCapturedStdout();
+
     EXPECT_TRUE(IBag151.getPackageInfo() == true);
+    EXPECT_EQ("El paquete ha sido entregado.\n", output);
 }
 
 TEST(Menu, Option14_Exit)
 {
     int option = 14;
-    menuAction(option);
 
     testing::internal::CaptureStdout();
-    IBag151.deliverPackage();
+    menuAction(option);
     std::string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("Hasta luego!\n", output);
