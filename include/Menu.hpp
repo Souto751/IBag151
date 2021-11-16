@@ -7,36 +7,36 @@
 #include "./iMovement.hpp"
 
 int selectOption(){
-    int option = -1;
+    int option = 0;
 
     std::cout << "Insert option: ";
     std::cin >> option;
     if(std::cin.fail()){
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-        option = -1;
+        option = 0;
     }
     
     return option;
 }
 
 void menuAction(int &option){
-    if(option == 1) IBag151.engineOff();
-    if(option == 2) IBag151.engineOn();
-    if(option == 3) reverse.action(IBag151);
-    if(option == 4) accelerate.action(IBag151);
-    if(option == 5) stop.action(IBag151);
-    if(option == 6) descend.action(IBag151);
-    if(option == 7) ascend.action(IBag151);
-    if(option == 8) moveRight.action(IBag151);
-    if(option == 9) moveLeft.action(IBag151);
-    if(option == 10) rotateRight.action(IBag151);
-    if(option == 11) rotateLeft.action(IBag151);
-    if(option == 12) IBag151.deliverPackage();
-    if(option == 13) {
+    if(option == 1) IBag151.engineOn();
+    if(option == 2) IBag151.engineOff();
+    if(option == 3) accelerate.action(IBag151);
+    if(option == 4) stop.action(IBag151);
+    if(option == 5) reverse.action(IBag151);
+    if(option == 6) ascend.action(IBag151);
+    if(option == 7) descend.action(IBag151);
+    if(option == 8) moveLeft.action(IBag151);
+    if(option == 9) moveRight.action(IBag151);
+    if(option == 10) rotateLeft.action(IBag151);
+    if(option == 11) rotateRight.action(IBag151);
+    if(option == 12) {
         Package pack;
         IBag151.chargePackage(pack);
     }
+    if(option == 13) IBag151.deliverPackage();
     if(option == 14) option = -1;
 }
 
