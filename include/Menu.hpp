@@ -5,6 +5,7 @@
 #include <limits>
 #include "./Drone.hpp"
 #include "./iMovement.hpp"
+#include "../lib/cleanscreen/cleanScreen.hpp"
 
 int selectOption(){
     int option = 0;
@@ -46,6 +47,7 @@ void menuAction(int &option){
 void displayMenu(){
     int option = 0;
     do{
+        clean_screen();
         std::cout << "App Drone IBag151" << std::endl << std::endl;
         std::cout << "--Drive Drone--" << std::endl;
         std::cout << "1. Start Engine" << std::endl;
@@ -69,8 +71,9 @@ void displayMenu(){
         option = selectOption();
         
         if(option < 0 || option > 14){
-            std::cout << "Invalid Option" << std::endl;
+            std::cout << "\nInvalid Option. Press ENTER to continue..." << std::endl;
             option = 0;
+            std::cin.get();
             std::cin.ignore();
         }
 
